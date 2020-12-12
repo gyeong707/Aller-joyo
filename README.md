@@ -32,8 +32,11 @@
 ![참고한 디자인](readme_images/image.png)
 2. 디자인 초안 만들기  
 * 포토샵을 할 줄 몰라 그림판을 이용함(포토샵의 중요성을 알게 되었음.). 디자인 프레임을 생성한 후에 이미지, 문구, 폰트 등의 디테일은 웹 페이지의 컨셉에 맞게 디자인하여 초안 완성함.
+![참고한 디자인](readme_images/image_1.png)
 3. 웹에서 구현하기  
 * 최소한의 디자인만 포함한 이미지를 웹의 background로 삽입한 이후에 나머지는 HTML, CSS 바탕으로 구현함. 이미지와 요소들은 주로 `position:absolute`를 이용해 배치시킴.
+![참고한 디자인](readme_images/image_2.png)
+![참고한 디자인](readme_images/image_3.png)
 
 ### 백엔드 개발 과정
 
