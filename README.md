@@ -1,1 +1,2 @@
-# dbp-t06
+# Allerjoyo
+SSWU Database programming team06.
