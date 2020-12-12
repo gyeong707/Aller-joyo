@@ -15,14 +15,16 @@
 * 사용자는 개인의 체질, 기호, 신념 등에 맞지 않는 전성분을 선택 또는 입력하여 섭취 가능한 식품을 확인할 수 있음.
 
 ### 서비스 상세
+#### 메인 화면
 * 메인 화면인 index.php는 아래 이미지와 같음.
 ![response 결과](readme_images/service_1.png)
+
+* 메인화면에서 사용자는 검색할 식품의 카테고리를 드롭다운 메뉴에서 선택할 수 있음. 현재 가능한 카테고리는 라면, 만두, 떡볶이 세 가지임. 카테고리를 분류하지 않고 싶다면 '전체'를 선택하면 됨.
 ![response 결과](readme_images/service_2.png)
 
+#### 카테고리 선택 결과
 *
 ![response 결과](readme_images/service_3.png)
-
-*
 ![response 결과](readme_images/service_4.png)
 
 *
