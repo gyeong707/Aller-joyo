@@ -1,4 +1,5 @@
 # dbp-t06: Aller-joyo(알러조요)
+[![response 결과](readme_images/service_1.png)](http://allerjoyo.dothome.co.kr/index2.php)
 
 ## 기획 배경 및 목적
 * 기획 배경
@@ -12,13 +13,33 @@
 * 다양한 떡볶이, 라면, 만두 카테고리에 속하는 공산품의 전성분 중 사용자가 선택한 식품 성분을 필터링해주는 서비스임.
 * 사용자는 개인의 체질, 기호, 신념 등에 맞지 않는 전성분을 선택 또는 입력하여 섭취 가능한 식품을 확인할 수 있음.
 
+### 서비스 상세
+* 메인 화면인 index.php는 아래 이미지와 같음.
+![response 결과](readme_images/service_1.png)
+![response 결과](readme_images/service_2.png)
 
+*
+![response 결과](readme_images/service_3.png)
+
+*
+![response 결과](readme_images/service_4.png)
+
+*
+![response 결과](readme_images/service_5.png)
+
+*
+![response 결과](readme_images/service_6.png)
+
+*
+![response 결과](readme_images/service_7.png)
+
+### index.php
 
 ## 개발 환경 및 언어
-* 개발 환경
-  * Apache, MySQL
-* 개발 언어
-  * PHP, HTML, CSS
+### 개발 환경
+* Apache, MySQL
+### 개발 언어
+* PHP, HTML, CSS
 
 ## 개발 과정
 ### 데이터 수집 과정
@@ -49,8 +70,8 @@
 ### 백엔드 개발 과정
 
 ## 역할 분담
-* 20160965 통계학과 강미경: 프론트엔드, 프론트엔드 & 백엔드 합치기
-* 20172025 컴퓨터공학과 김수빈: 백엔드, 백엔드 코드 합치기
+* 20160965 통계학과 강미경: 프론트엔드, 프론트엔드 & 백엔드 병합
+* 20172025 컴퓨터공학과 김수빈: 백엔드, 백엔드 코드 병합
 * 20172081 컴퓨터공학과 이혜린: 백엔드, 서버에 올리기
 * 20180978 컴퓨터공학과 김혜지: 데이터 수집 & 생성, README 작성
 
