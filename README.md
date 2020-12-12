@@ -33,7 +33,7 @@
 * Numbers를 이용하여 Aller-joyo에 필요한 'category' 컬럼을 추가하고 값 추가함.
 ![category 컬럼 추가](readme_images/numbers_category_column.png)
 * 완성된 데이터를 CSV 파일로 export함.
-
+--------------------------------------
 ### 프론트엔드 개발 과정
 1. 참조할 디자인 셀렉  
 * 프로젝트의 컨셉에 따라 음식과 관련된 디자인을 선택한 후 색 코드를 정리함.
@@ -45,7 +45,7 @@
 * 최소한의 디자인만 포함한 이미지를 웹의 background로 삽입한 이후에 나머지는 HTML, CSS 바탕으로 구현함. 이미지와 요소들은 주로 `position:absolute`를 이용해 배치시킴.
 ![background로 사용한 이미지](readme_images/image_2.png)
 ![완성된 모습](readme_images/image_3.png)
-
+--------------------------------------
 ### 백엔드 개발 과정
 
 ## 역할 분담
