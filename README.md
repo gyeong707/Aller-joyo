@@ -1,4 +1,5 @@
-# dbp-t06: Aller-joyo(알러조요)
+# dbp-t06: 🍑🥛🥜Aller-joyo(알러조요)🥜🥛🍑
+* 아래 이미지를 클릭하면 홈페이지로 링크됨.
 [![response 결과](readme_images/service_1.png)](http://allerjoyo.dothome.co.kr/index2.php)
 
 ## 기획 배경 및 목적
@@ -32,8 +33,6 @@
 
 *
 ![response 결과](readme_images/service_7.png)
-
-### index.php
 
 ## 개발 환경 및 언어
 ### 개발 환경
