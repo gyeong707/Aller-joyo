@@ -26,7 +26,7 @@
 * JSON 데이터를 CSV 파일로 변환함.
   * [온라인 JSON to CSV converter](http://convertcsv.com/json-to-csv.htm)를 사용함
 * Numbers를 이용하여 Aller-joyo에 필요한 'category' 컬럼을 추가하고 값 추가함.
-![category 컬럼 추가](readme_images/numbers_category.column.png)
+![category 컬럼 추가](readme_images/numbers_category_column.png)
 * 완성된 데이터를 CSV 파일로 export함.
 
 ### 프론트엔드 개발 과정
