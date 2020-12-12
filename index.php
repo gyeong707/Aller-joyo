@@ -10,7 +10,7 @@
     <link rel=stylesheet href="style.css" type="text/css">
 </head>
 <body>
-  <span id="headinfo">SSWU 4-2 DBP </span>
+  <span id="headinfo">SSWU 4-2 DBP</span>
   <div id="container">
     <div id="board">
       <img src="images/egg.png" class="img_egg">
