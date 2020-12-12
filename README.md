@@ -21,9 +21,12 @@
 * 공공데이터포털에서 활용하고자 하는 API 개발 활용 신청 후 인증키 발급받음.
 2. 데이터 생성
 * 해당 API에 쿼리를 던져 JSON 형태로 리스펀스 받음.
+![response 결과](readme_images/response.png)
 * JSON 데이터에서 필요한 부분만 뽑아냄.
 * JSON 데이터를 CSV 파일로 변환함.
-* Numbers를 이용하여 Aller-joyo에 필요한 '카테고리' 컬럼을 추가하고 값 추가함.
+  * [온라인 JSON to CSV converter](http://convertcsv.com/json-to-csv.htm)를 사용함
+* Numbers를 이용하여 Aller-joyo에 필요한 'category' 컬럼을 추가하고 값 추가함.
+![category 컬럼 추가](readme_images/numbers_category.column.png)
 * 완성된 데이터를 CSV 파일로 export함.
 
 ### 프론트엔드 개발 과정
@@ -32,11 +35,11 @@
 ![참고한 디자인](readme_images/image.png)
 2. 디자인 초안 만들기  
 * 포토샵을 할 줄 몰라 그림판을 이용함(포토샵의 중요성을 알게 되었음.). 디자인 프레임을 생성한 후에 이미지, 문구, 폰트 등의 디테일은 웹 페이지의 컨셉에 맞게 디자인하여 초안 완성함.
-![참고한 디자인](readme_images/image_1.png)
+![디자인 조정 과정](readme_images/image_1.png)
 3. 웹에서 구현하기  
 * 최소한의 디자인만 포함한 이미지를 웹의 background로 삽입한 이후에 나머지는 HTML, CSS 바탕으로 구현함. 이미지와 요소들은 주로 `position:absolute`를 이용해 배치시킴.
-![참고한 디자인](readme_images/image_2.png)
-![참고한 디자인](readme_images/image_3.png)
+![background로 사용한 이미지](readme_images/image_2.png)
+![완성된 모습](readme_images/image_3.png)
 
 ### 백엔드 개발 과정
 
