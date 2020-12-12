@@ -20,7 +20,7 @@
 
       <span id="board_title">Do you have a food <sapn class="high-text">allergy</sapn>?</span>
       <div id="borad_content">
-        <span class="content">We will show the ingredients of the product.</span><br>
+        <span class="content">We will show you the ingredients of the product.</span><br>
         <span class="content"><sapn class="high-text">Here, Select the product category!</span></span>
         <div id="board_category"> Available Category : 라면, 만두, 떡볶이</div>
       </div>
