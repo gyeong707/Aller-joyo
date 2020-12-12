@@ -6,10 +6,13 @@
 * 기획 목적
   * 알러지 유발 성분 표기가 미비한 식품들 안전하게 섭취할 수 있도록 알러지 유발 성분을 검색하여 필터링 할 수 있는 서비스를 제공하고자 함.
 
-## 서비스 소개
-### Aller-joyo
+## Aller-joyo 서비스 소개
+### 서비스 개요
 * Allergy + 알려줘요
-* 알러지를
+* 다양한 떡볶이, 라면, 만두 카테고리에 속하는 공산품의 전성분 중 사용자가 선택한 식품 성분을 필터링해주는 서비스임.
+* 사용자는 개인의 체질, 기호, 신념 등에 맞지 않는 전성분을 선택 또는 입력하여 섭취 가능한 식품을 확인할 수 있음.
+
+
 
 ## 개발 환경 및 언어
 * 개발 환경
@@ -26,7 +29,7 @@
 ![response 결과](readme_images/response.png)
 * JSON 데이터에서 필요한 부분만 뽑아냄.
 * JSON 데이터를 CSV 파일로 변환함.
-  * [온라인 JSON to CSV converter](http://convertcsv.com/json-to-csv.htm)를 사용함
+  * [온라인 JSON to CSV converter](http://convertcsv.com/json-to-csv.htm)를 사용함.
 * Numbers를 이용하여 Aller-joyo에 필요한 'category' 컬럼을 추가하고 값 추가함.
 ![category 컬럼 추가](readme_images/numbers_category_column.png)
 * 완성된 데이터를 CSV 파일로 export함.
