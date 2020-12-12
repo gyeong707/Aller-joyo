@@ -22,18 +22,17 @@
       <div id="borad_content">
         <span class="content">We will show the ingredients of the product.</span><br>
         <span class="content"><sapn class="high-text">Here, Select the product category!</span></span>
-        <div id="board_category"> Available Category : ALL, 라면, 만두, 떡볶이, 빵 </div>
+        <div id="board_category"> Available Category : 라면, 만두, 떡볶이</div>
       </div>
       <div id="form-container">
-        <form action="view.php" method="POST">
-            <select name = "category" id="form_select">
-              <option value="all">&nbsp&nbspALL</option>
-              <option value="ramen">&nbsp&nbsp라면</option>
-              <option value="mandoo">&nbsp&nbsp만두</option>
-              <option value="ttekbokki">&nbsp&nbsp떡볶이</option>
-              <option value="bread">&nbsp&nbsp빵</option>
+        <form action="category_process.php" method="POST">
+            <select name = "category" class="form_select">
+              <option value="all">&nbsp&nbsp전체</option>
+              <option value="라면">&nbsp&nbsp라면</option>
+              <option value="만두">&nbsp&nbsp만두</option>
+              <option value="떡볶이">&nbsp&nbsp떡볶이</option>
             </select><br>
-            <input type="submit" value="Submit" id="form_submit"><br><br>
+            <input type="submit" value="Submit" class="form_submit"><br><br>
         </form>
       </div>
     </div>
