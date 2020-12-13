@@ -2,7 +2,7 @@
 * 아래 이미지를 클릭하면 홈페이지로 링크됨.
 [![response 결과](readme_images/service_1.png)](http://allerjoyo.dothome.co.kr/index.php)
 
-- [dbp-t06: 🍑🥛🥜Aller-joyo(알러조요)🥜🥛🍑](#dbp-t06--------aller-joyo------------)
+## 🍑 목차
   * [🍑 기획 배경 및 목적](#-------------)
     + [🥛 기획 배경](#--------)
     + [🥛 기획 목적](#--------)
@@ -31,9 +31,6 @@
       - [🥜 FTP 서버](#---ftp---)
   * [🍑 역할 분담](#--------)
   * [🍑 출처](#-----)
-
-<small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
-
 
 
 ## 🍑 기획 배경 및 목적
