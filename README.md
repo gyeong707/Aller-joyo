@@ -55,9 +55,9 @@
 
 ## 🍑 개발 과정
 ### 🥛 데이터 수집 과정
-1. 수집할 데이터 선택
+#### 🥜 수집할 데이터 선택
 * 공공데이터포털에서 활용하고자 하는 API 개발 활용 신청 후 인증키 발급받음.
-2. 데이터 생성
+#### 🥜 데이터 생성
 * 해당 API에 쿼리를 던져 JSON 형태로 리스펀스 받음.
 ![response 결과](readme_images/response.png)
 * JSON 데이터에서 필요한 부분만 뽑아냄.
@@ -68,27 +68,40 @@
 * 완성된 데이터를 CSV 파일로 export함.
 --------------------------------------
 ### 🥛 프론트엔드 개발 과정
-1. 참조할 디자인 셀렉  
+#### 🥜 참조할 디자인 셀렉  
 * 프로젝트의 컨셉에 따라 음식과 관련된 디자인을 선택한 후 색 코드를 정리함.
 ![참고한 디자인](readme_images/image.png)
-2. 디자인 초안 만들기  
+#### 🥜 디자인 초안 만들기  
 * 포토샵을 할 줄 몰라 그림판을 이용함(포토샵의 중요성을 알게 되었음.). 디자인 프레임을 생성한 후에 이미지, 문구, 폰트 등의 디테일은 웹 페이지의 컨셉에 맞게 디자인하여 초안 완성함.
 ![디자인 조정 과정](readme_images/image_1.png)
-3. 웹에서 구현하기  
+#### 🥜 웹에서 구현하기  
 * 최소한의 디자인만 포함한 이미지를 웹의 background로 삽입한 이후에 나머지는 HTML, CSS 바탕으로 구현함. 이미지와 요소들은 주로 `position:absolute`를 이용해 배치시킴.
 ![background로 사용한 이미지](readme_images/image_2.png)
 ![완성된 모습](readme_images/image_3.png)
 --------------------------------------
 ### 🥛 백엔드 개발 과정
+#### 🥜 테이블 생성
+* 테이블 생성 후 food_3.csv 파일의 데이터를 집어넣음
+![food table](readme_images/food_2_table.png)
+#### 🥜process
+1. index.php
+* 라면, 만두, 떡볶이, 전체로 이루어져 있는 카테고리를 선택하면 `category_process.php`로 category 데이터를 POST로 전달한다.
+2. category.php
+* `query = "SELECT prdlstNm, rawmtrl, allergy, category FROM food WHERE category LIKE '%{$filtered_category}%'`
+* `index.php`에서 `LIKE`를 사용해 카테고리에 해당되는 데이터들만 선택해 음식 이름, 성분, 알러지, 카테고리를 화면에 나타내준다.
+* 해당 카테고리에서 알러지 유발 성분(대두, 밀 땅콩 등)을 체크박스를 통해 선택하고 거르고 싶은 성분을 text box에 집어넣으면 `all_process.php`에 선택한 성분 데이터들(allergy, nutrient)과 현재 페이지의 카테고리가 POST로 전달된다.
+3. all_process.php
+* `query = "SELECT prdlstNm, rawmtrl ,allergy, category FROM food WHERE category LIKE '%{$category}%' and NOT REGEXP_LIKE(rawmtrl, '{$filtered_nutrient_query}') and NOT REGEXP_LIKE(allergy,'{$filtered_allergy}') and NOT REGEXP_LIKE(rawmtrl, '{$filtered_allergy}')"`
+* `NOT REGEXP_LIKE`를 사용해 다중 선택된 성분과 알러지들을 필터링해서 결과값을 나타내준다.
 --------------------------------------
 ### 🥛 서버 연결 과정
-1. 데이터베이스
+#### 🥜 데이터베이스
 * 닷홈 주소를 만들 때 생성되는 phpMyAdmin을 이용함
 ![phpmyadmin](readme_images/server_phpmyadmin.PNG)
 * '가져오기' 에서 .csv파일로 저장된 데이터들을 food테이블에 넣어주었음
 ![데이터 가져오기](readme_images/server_load_data.PNG)
 ![데이터 가져오기](readme_images/server_database.PNG)
-2. FTP 서버
+#### 🥜 FTP 서버
 * FileZilla를 이용해서 만들었음.  호스트, 사용자ID, 비밀번호를 이용하여 접속함
 * /host/home1/allerjoyo/html/ 경로에 .php파일, .css파일, .png파일을 넣어주었음
 ![데이터 가져오기](readme_images/server_ftp.PNG)
