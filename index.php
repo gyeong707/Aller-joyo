@@ -6,7 +6,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>dbp final</title>
+    <title>Aller-joyo</title>
     <link rel=stylesheet href="style.css" type="text/css">
 </head>
 <body>
