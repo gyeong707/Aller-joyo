@@ -26,6 +26,7 @@
     $filtered_nutrient_query = '';
     $print_nutrient = $print_allergy;
   }
+
   else {
     for ($i = 0; $i < count($filtered_nutrient_array); $i++) {
       $print_nutrient .= $filtered_nutrient_array[$i];
