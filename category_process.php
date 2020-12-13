@@ -1,5 +1,5 @@
 <?php
-    $link = mysqli_connect("localhost", "root", "ROOTROOT", "dbp");
+    $link = mysqli_connect("localhost", "root", "kimhj0314", "dbp");
     $filtered_category = mysqli_real_escape_string($link, $_POST['category']);
 
     if($filtered_category == "all"){
@@ -18,13 +18,13 @@
     while($row = mysqli_fetch_array($result)) {
       $food_info .= '<tr>';
       $food_info .= '<td width="180px">'.$row['prdlstNm'].'</td>';
-      $food_info .= '<td width="100px">'.$row['category'].'</td>'; 
+      $food_info .= '<td width="100px">'.$row['category'].'</td>';
       $food_info .= '<td width="180px">'.$row['allergy'].'</td>';
       $food_info .= '<td>'.$row['rawmtrl'].'</td>';
       $food_info .= '</tr>';
     }
 
-    
+
     mysqli_free_result($result);
     mysqli_close($link);
 
@@ -39,7 +39,7 @@
 </head>
 
 <body>
-    <span class="back_button"><a href="index.php">메인으로 돌아가기</a></span>  
+    <span class="back_button"><a href="index.php">메인으로 돌아가기</a></span>
     <div id="table_container">
     <div id="table_title">Result Table</div>
         <div class="filtered_info">
@@ -68,10 +68,10 @@
                 <input type="hidden" name="category" value=<?=$filtered_category?>>
                 <br><br>
                 <div class="allergy_filter_title"><label>* 일반 성분 필터링 *</label></div>
-                <input type="text" name="nutrient" placeholder="  제외할 성분 이름을 입력하세요. ex) 치즈" class="form_search">
+                <input type="text" name="nutrient" placeholder="  제외할 성분 이름을 입력하세요. ex) 치즈,양파" class="form_search">
                 <br>
                 <input type="submit" value="검색하기" class="form_search_submit">
-            </form>   
+            </form>
         </div>
         <div class="table_rownum">총 <?=$totalrownum?> 개의 행이 검색되었습니다.</div>
         <table class="data">
