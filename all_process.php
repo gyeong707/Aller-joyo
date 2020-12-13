@@ -14,7 +14,7 @@
       $filtered_allergy .= "|";
     }
   };
-
+                            
   $filtered_nutrient = '';
   $filtered_nutrient = mysqli_real_escape_string($link, $_POST['nutrient']);
   $filtered_nutrient_array = explode(',', $filtered_nutrient);
