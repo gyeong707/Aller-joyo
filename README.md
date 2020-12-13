@@ -1,6 +1,6 @@
 # dbp-t06: 🍑🥛🥜Aller-joyo(알러조요)🥜🥛🍑
 * 아래 이미지를 클릭하면 홈페이지로 링크됨.
-[![response 결과](readme_images/service_1.png)](http://allerjoyo.dothome.co.kr/index2.php)
+[![response 결과](readme_images/service_1.png)](http://allerjoyo.dothome.co.kr/index.php)
 
 ## 🍑 기획 배경 및 목적
 ### 🥛 기획 배경
