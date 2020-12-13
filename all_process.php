@@ -1,54 +1,69 @@
 <?php
-    $link = mysqli_connect("localhost", "root", "kimhj0314", "dbp");
+  $link = mysqli_connect("localhost", "root", "kimhj0314", "dbp");
 
-    $filtered_allergy = '';
-    $print_allergy = '';
+  $filtered_allergy = '';
+  $print_allergy = '';
+  $allergy = $_POST['allergy'];
 
-    $allergy = $_POST['allergy'];
-    for($i=0; $i<count($allergy); $i++){
-        $print_allergy .= $allergy[$i];
-        $filtered_allergy .= $allergy[$i];
-        if($i!=count($allergy)-1){
-            $print_allergy .= ", ";
-            $filtered_allergy .= "|";
-        }
-    };
+  for ($i = 0; $i < count($allergy); $i++) {
+    $print_allergy .= $allergy[$i];
+    $filtered_allergy .= $allergy[$i];
+
+    if($i < count($allergy) - 1) {
+      $print_allergy .= ", ";
+      $filtered_allergy .= "|";
+    }
+  };
 
   $filtered_nutrient = '';
-   $filtered_nutrient = mysqli_real_escape_string($link, $_POST['nutrient']);
-   $filtered_nutrient_array = explode(',', $filtered_nutrient);
+  $filtered_nutrient = mysqli_real_escape_string($link, $_POST['nutrient']);
+  $filtered_nutrient_array = explode(',', $filtered_nutrient);
 
-   $filtered_nutrient_query = '';
-   $print_nutrient = '';
+  $filtered_nutrient_query = '';
+  $print_nutrient = '';
 
-   if (count($filtered_nutrient_array) == 0) {
-     $filtered_nutrient_query = "blank";
-     $print_nutrient = $print_allergy;
-   }
-   else {
-     for ($i = 0; $i < count($filtered_nutrient_array); $i++) {
-       $print_nutrient .= $filtered_nutrient_array[$i];
-       $filtered_nutrient_query .= $filtered_nutrient_array[$i];
+  if ($filtered_nutrient_array[0] == '') {
+    $filtered_nutrient_query = '';
+    $print_nutrient = $print_allergy;
+  }
+  else {
+    for ($i = 0; $i < count($filtered_nutrient_array); $i++) {
+      $print_nutrient .= $filtered_nutrient_array[$i];
+      $filtered_nutrient_query .= $filtered_nutrient_array[$i];
 
-       if($i != (count($filtered_nutrient_array) - 1)){
-           $print_nutrient .= ", ";
-           $filtered_nutrient_query .= "|";
-       }
-     }
+      if($i < (count($filtered_nutrient_array) - 1)){
+        $print_nutrient .= ", ";
+        $filtered_nutrient_query .= "|";
+      }
+    }
 
-     $print_nutrient = $print_allergy.", ".$filtered_nutrient;
-   }
+    $print_nutrient = $print_allergy.", ".$print_nutrient;
+  }
+
     $category = mysqli_real_escape_string($link, $_POST['category']);
 
-    if($category == "all"){
-        $print_category = "전체";
-        $query = "SELECT prdlstNm, rawmtrl ,allergy, category FROM food WHERE
-        NOT REGEXP_LIKE(rawmtrl, '{$filtered_nutrient_query}') and NOT REGEXP_LIKE(allergy, '{$filtered_allergy}') and NOT REGEXP_LIKE(rawmtrl, '{$filtered_allergy}')";
-    }
-    else{
-        $print_category = $category;
-        $query = "SELECT prdlstNm, rawmtrl ,allergy, category FROM food WHERE category LIKE '%{$category}%' and
-        NOT REGEXP_LIKE(rawmtrl, '{$filtered_nutrient_query}') and NOT REGEXP_LIKE(allergy, '{$filtered_allergy}') and NOT REGEXP_LIKE(rawmtrl, '{$filtered_allergy}')";
+    if ($filtered_nutrient_query == '') {
+      if($category == "all"){
+          $print_category = "전체";
+          $query = "SELECT prdlstNm, rawmtrl ,allergy, category FROM food WHERE
+          NOT REGEXP_LIKE(allergy, '{$filtered_allergy}') and NOT REGEXP_LIKE(rawmtrl, '{$filtered_allergy}')";
+      }
+      else{
+          $print_category = $category;
+          $query = "SELECT prdlstNm, rawmtrl ,allergy, category FROM food WHERE category LIKE '%{$category}%' and
+          NOT REGEXP_LIKE(allergy, '{$filtered_allergy}') and NOT REGEXP_LIKE(rawmtrl, '{$filtered_allergy}')";
+      }
+    } else {
+      if($category == "all"){
+          $print_category = "전체";
+          $query = "SELECT prdlstNm, rawmtrl ,allergy, category FROM food WHERE
+          NOT REGEXP_LIKE(rawmtrl, '{$filtered_nutrient_query}') and NOT REGEXP_LIKE(allergy, '{$filtered_allergy}') and NOT REGEXP_LIKE(rawmtrl, '{$filtered_allergy}')";
+      }
+      else{
+          $print_category = $category;
+          $query = "SELECT prdlstNm, rawmtrl ,allergy, category FROM food WHERE category LIKE '%{$category}%' and
+          NOT REGEXP_LIKE(rawmtrl, '{$filtered_nutrient_query}') and NOT REGEXP_LIKE(allergy, '{$filtered_allergy}') and NOT REGEXP_LIKE(rawmtrl, '{$filtered_allergy}')";
+      }
     }
 
     $result = mysqli_query($link, $query);
