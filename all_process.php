@@ -1,41 +1,69 @@
 <?php
-    $link = mysqli_connect("localhost", "root", "ROOTROOT", "dbp");
+  $link = mysqli_connect("localhost", "root", "kimhj0314", "dbp");
 
-    $filtered_allergy = '';
-    $print_allergy = '';
+  $filtered_allergy = '';
+  $print_allergy = '';
+  $allergy = $_POST['allergy'];
 
-    $allergy = $_POST['allergy'];
-    for($i=0; $i<count($allergy); $i++){
-        $print_allergy .= $allergy[$i];
-        $filtered_allergy .= $allergy[$i];
-        if($i!=count($allergy)-1){
-            $print_allergy .= ", ";
-            $filtered_allergy .= "|";
-        }
-    };
+  for ($i = 0; $i < count($allergy); $i++) {
+    $print_allergy .= $allergy[$i];
+    $filtered_allergy .= $allergy[$i];
 
-    $filtered_nutrient = '';
-    $filtered_nutrient = mysqli_real_escape_string($link, $_POST['nutrient']);
+    if($i < count($allergy) - 1) {
+      $print_allergy .= ", ";
+      $filtered_allergy .= "|";
+    }
+  };
+
+  $filtered_nutrient = '';
+  $filtered_nutrient = mysqli_real_escape_string($link, $_POST['nutrient']);
+  $filtered_nutrient_array = explode(',', $filtered_nutrient);
+
+  $filtered_nutrient_query = '';
+  $print_nutrient = '';
+
+  if ($filtered_nutrient_array[0] == '') {
+    $filtered_nutrient_query = '';
+    $print_nutrient = $print_allergy;
+  }
+  else {
+    for ($i = 0; $i < count($filtered_nutrient_array); $i++) {
+      $print_nutrient .= $filtered_nutrient_array[$i];
+      $filtered_nutrient_query .= $filtered_nutrient_array[$i];
+
+      if($i < (count($filtered_nutrient_array) - 1)){
+        $print_nutrient .= ", ";
+        $filtered_nutrient_query .= "|";
+      }
+    }
+
+    $print_nutrient = $print_allergy.", ".$print_nutrient;
+  }
+
     $category = mysqli_real_escape_string($link, $_POST['category']);
 
-    if($filtered_nutrient==null){
-        $filtered_nutrient="blank";
-        $print_nutrient = $print_allergy;
-    }
-
-    else{
-        $print_nutrient=$print_allergy.", ".$filtered_nutrient;
-    }
-
-    if($category == "all"){
-        $print_category = "전체";
-        $query = "SELECT prdlstNm, rawmtrl ,allergy, category FROM food WHERE rawmtrl 
-        NOT LIKE '%{$filtered_nutrient}%' and NOT REGEXP_LIKE(allergy, '{$filtered_allergy}') and NOT REGEXP_LIKE(rawmtrl, '{$filtered_allergy}')";
-    }
-    else{
-        $print_category = $category;
-        $query = "SELECT prdlstNm, rawmtrl ,allergy, category FROM food WHERE category LIKE '%{$category}%' and rawmtrl 
-        NOT LIKE '%{$filtered_nutrient}%' and NOT REGEXP_LIKE(allergy, '{$filtered_allergy}') and NOT REGEXP_LIKE(rawmtrl, '{$filtered_allergy}')";
+    if ($filtered_nutrient_query == '') {
+      if($category == "all"){
+          $print_category = "전체";
+          $query = "SELECT prdlstNm, rawmtrl ,allergy, category FROM food WHERE
+          NOT REGEXP_LIKE(allergy, '{$filtered_allergy}') and NOT REGEXP_LIKE(rawmtrl, '{$filtered_allergy}')";
+      }
+      else{
+          $print_category = $category;
+          $query = "SELECT prdlstNm, rawmtrl ,allergy, category FROM food WHERE category LIKE '%{$category}%' and
+          NOT REGEXP_LIKE(allergy, '{$filtered_allergy}') and NOT REGEXP_LIKE(rawmtrl, '{$filtered_allergy}')";
+      }
+    } else {
+      if($category == "all"){
+          $print_category = "전체";
+          $query = "SELECT prdlstNm, rawmtrl ,allergy, category FROM food WHERE
+          NOT REGEXP_LIKE(rawmtrl, '{$filtered_nutrient_query}') and NOT REGEXP_LIKE(allergy, '{$filtered_allergy}') and NOT REGEXP_LIKE(rawmtrl, '{$filtered_allergy}')";
+      }
+      else{
+          $print_category = $category;
+          $query = "SELECT prdlstNm, rawmtrl ,allergy, category FROM food WHERE category LIKE '%{$category}%' and
+          NOT REGEXP_LIKE(rawmtrl, '{$filtered_nutrient_query}') and NOT REGEXP_LIKE(allergy, '{$filtered_allergy}') and NOT REGEXP_LIKE(rawmtrl, '{$filtered_allergy}')";
+      }
     }
 
     $result = mysqli_query($link, $query);
@@ -44,12 +72,12 @@
     while($row = mysqli_fetch_array($result)) {
       $food_info .= '<tr>';
       $food_info .= '<td width="180px">'.$row['prdlstNm'].'</td>';
-      $food_info .= '<td width="100px">'.$row['category'].'</td>'; 
+      $food_info .= '<td width="100px">'.$row['category'].'</td>';
       $food_info .= '<td width="180px">'.$row['allergy'].'</td>';
       $food_info .= '<td>'.$row['rawmtrl'].'</td>';
       $food_info .= '</tr>';
     }
-      
+
     mysqli_free_result($result);
     mysqli_close($link);
 
@@ -65,7 +93,7 @@
 </head>
 
 <body>
-<span class="back_button"><a href="index.php">메인으로 돌아가기</a></span>  
+<span class="back_button"><a href="index.php">메인으로 돌아가기</a></span>
     <div id="table_container">
     <div id="table_title">Result Table</div>
         <div class="filtered_info">
@@ -95,10 +123,10 @@
                 <input type="hidden" name="category" value=<?=$category?>>
                 <br><br>
                 <div class="allergy_filter_title"><label>* 일반 성분 필터링 *</label></div>
-                <input type="text" name="nutrient" placeholder="  제외할 성분 이름을 입력하세요. ex) 치즈" class="form_search">
+                <input type="text" name="nutrient" placeholder="  제외할 성분 이름을 입력하세요. ex) 치즈,양파" class="form_search">
                 <br>
                 <input type="submit" value="검색하기" class="form_search_submit">
-            </form>   
+            </form>
         </div>
         <div class="table_rownum">총 <?=$totalrownum?> 개의 행이 검색되었습니다.</div>
         <table class="data">
