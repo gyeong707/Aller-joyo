@@ -80,7 +80,18 @@
 ![완성된 모습](readme_images/image_3.png)
 --------------------------------------
 ### 🥛 백엔드 개발 과정
-
+--------------------------------------
+### 🥛 서버 연결 과정
+1. 데이터베이스
+* 닷홈 주소를 만들 때 생성되는 phpMyAdmin을 이용함
+![phpmyadmin](readme_images/개발과정_phpmyadmin.png)
+* '가져오기' 에서 .csv파일로 저장된 데이터들을 food테이블에 넣어주었음
+![데이터 가져오기](readme_images/개발과정_데이터가져오기.png)
+![데이터 가져오기](readme_images/개발과정_데이터베이스.png)
+2. FTP 서버
+* FileZilla를 이용해서 만들었음.  호스트, 사용자ID, 비밀번호를 이용하여 접속함
+* /host/home1/allerjoyo/html/ 경로에 .php파일, .css파일, .png파일을 넣어주었음
+![데이터 가져오기](readme_images/개발과정_FTP서버.png)
 
 
 ## 🍑 역할 분담
